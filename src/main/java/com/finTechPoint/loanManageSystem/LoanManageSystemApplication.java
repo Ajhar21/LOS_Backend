@@ -3,11 +3,11 @@ package com.finTechPoint.loanManageSystem;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.finTechPoint.loanManageSystem")
 public class LoanManageSystemApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LoanManageSystemApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LoanManageSystemApplication.class, args);
+    }
 
 }
