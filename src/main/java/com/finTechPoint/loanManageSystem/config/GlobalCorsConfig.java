@@ -22,7 +22,7 @@ public class GlobalCorsConfig {
         
         **/
 
-        config.setAllowedOriginPatterns(List.of("http://103.122.251.232:5173")); // or other trusted domains
+        config.setAllowedOriginPatterns(List.of("http://localhost:5173")); // or other trusted domains
         //"http://103.122.251.232:5173" this is Tareq mechine frontend APP
         config.setAllowCredentials(true);  // Only works with specific origins
 
