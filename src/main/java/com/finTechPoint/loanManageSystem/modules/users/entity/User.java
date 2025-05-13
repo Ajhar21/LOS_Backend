@@ -3,7 +3,7 @@ package com.finTechPoint.loanManageSystem.modules.users.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "losdb") //added schema name
 public class User {
     
     @Id
