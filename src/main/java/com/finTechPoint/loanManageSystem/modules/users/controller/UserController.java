@@ -1,6 +1,7 @@
 package com.finTechPoint.loanManageSystem.modules.users.controller;
 
 import com.finTechPoint.loanManageSystem.modules.users.dto.LoginRequest;
+import com.finTechPoint.loanManageSystem.modules.users.dto.UserInfoResponse;
 import com.finTechPoint.loanManageSystem.modules.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,4 +23,11 @@ public class UserController {
             return ResponseEntity.status(401).body("Invalid username or password");
         }
     }
+
+    @GetMapping("/getUserInfo/{userId}")
+    public ResponseEntity<UserInfoResponse> getUserInfo(@PathVariable Long userId) {
+    UserInfoResponse response = userService.getUserInfo(userId);
+    return ResponseEntity.ok(response);
+}
+
 }
