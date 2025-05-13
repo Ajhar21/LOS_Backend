@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
         return false;
     }
-
+/** 
     @Override
     public UserInfoResponse getUserInfo(String username) {
         User user = userRepository.findByUsername(username)
@@ -47,6 +47,26 @@ public class UserServiceImpl implements UserService {
 
         return response;
     }
+**/
+
+    @Override
+    public UserInfoResponse getUserInfo(String username) {
+    Optional<User> userOpt = userRepository.findByUsername(username);
+
+    if (userOpt.isEmpty()) {
+        return null;
+    }
+
+    User user = userOpt.get();
+    UserInfoResponse response = new UserInfoResponse();
+    response.setFullName(user.getFullName());
+    response.setRole(user.getRole());
+    response.setDepartment(user.getDepartment());
+    response.setOffice(user.getOffice());
+    response.setUserMail(user.getUserMail());
+
+    return response;
+}
 
 }
 

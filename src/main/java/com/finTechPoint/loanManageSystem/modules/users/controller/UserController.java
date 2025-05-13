@@ -3,6 +3,8 @@ package com.finTechPoint.loanManageSystem.modules.users.controller;
 import com.finTechPoint.loanManageSystem.modules.users.dto.LoginRequest;
 import com.finTechPoint.loanManageSystem.modules.users.dto.UserInfoResponse;
 import com.finTechPoint.loanManageSystem.modules.users.service.UserService;
+import java.util.Map;
+import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,11 +25,26 @@ public class UserController {
             return ResponseEntity.status(401).body("Invalid username or password");
         }
     }
-
+/** 
     @GetMapping("/getUserInfo/{username}")
     public ResponseEntity<UserInfoResponse> getUserInfo(@PathVariable String username) {
     UserInfoResponse response = userService.getUserInfo(username);
     return ResponseEntity.ok(response);
+    }
+*/
+
+    @GetMapping("/getUserInfo/{username}")
+    public ResponseEntity<?> getUserInfo(@PathVariable String username) {
+    UserInfoResponse response = userService.getUserInfo(username);
+
+    if (response == null) {
+        Map<String, String> errorResponse = new HashMap<>();
+        errorResponse.put("message", "User not found with username: " + username);
+        return ResponseEntity.status(404).body(errorResponse);
+    }
+
+    return ResponseEntity.ok(response);
 }
+
 
 }
