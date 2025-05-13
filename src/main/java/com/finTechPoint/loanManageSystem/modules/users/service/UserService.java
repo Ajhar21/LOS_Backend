@@ -19,5 +19,5 @@ public interface UserService {
      * @param userId the ID of the user
      * @return UserInfoResponse containing full name, role, department, office, and user mail
      */
-    UserInfoResponse getUserInfo(Long userId);
+    UserInfoResponse getUserInfo(String username);
 }
