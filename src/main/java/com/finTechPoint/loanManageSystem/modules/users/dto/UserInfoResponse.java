@@ -6,6 +6,17 @@ public class UserInfoResponse {
     private String department;
     private String office;
     private String userMail;
+    private String token; // ✅ Add this
+
+    // Constructor
+    public UserInfoResponse(String fullName, String role, String department, String office, String userMail, String token) {
+        this.fullName = fullName;
+        this.role = role;
+        this.department = department;
+        this.office = office;
+        this.userMail = userMail;
+        this.token = token;
+    }
 
     // Getters and Setters
     public String getFullName() {
@@ -46,5 +57,13 @@ public class UserInfoResponse {
 
     public void setUserMail(String userMail) {
         this.userMail = userMail;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
